@@ -8,7 +8,12 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController (){
+    
+   
+}
+
+
 
 @end
 
@@ -16,6 +21,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSURL *webURL = [NSURL URLWithString:@"http://www.google.com"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:webURL];
+    [self.webViewOutlet loadRequest:request];
+    
+    
+    
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -26,4 +39,31 @@
 }
 
 
+
+- (IBAction)backButton:(id)sender {
+    
+        [_webViewOutlet goBack];
+    
+    
+}
+
+- (IBAction)nextButton:(id)sender {
+    [_webViewOutlet goForward];
+}
+
+- (IBAction)closeButton:(id)sender {
+   [_webViewOutlet stopLoading];
+   // [self.webViewOutlet removeFromSuperview];
+    
+}
+
+- (IBAction)refreshButton:(id)sender {
+    [_webViewOutlet reload];
+}
+
+- (IBAction)safari:(id)sender {
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.google.com"] options:@{} completionHandler:nil];
+    
+}
 @end

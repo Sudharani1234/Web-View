@@ -10,6 +10,16 @@
 
 @interface ViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIWebView *webViewOutlet;
+
+- (IBAction)backButton:(id)sender;
+
+- (IBAction)nextButton:(id)sender;
+
+
+- (IBAction)closeButton:(id)sender;
+- (IBAction)refreshButton:(id)sender;
+- (IBAction)safari:(id)sender;
 
 @end
 
